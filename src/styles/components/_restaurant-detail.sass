@@ -1,0 +1,227 @@
+
+.container__detail-restaurant
+    z-index: 10004
+    display: block
+    box-sizing: border-box
+    -moz-column-gap: 15px
+    margin-left: 20px
+    min-height: 95vh
+    margin-right: 20px
+    gap : 20px
+    grid-template-columns: 1fr
+    .msg-failed
+        margin: auto 0
+        font-size: 1.2rem
+    .container-detail-information
+        display: grid
+        grid-template-columns: 1fr
+        @include media-in(tablet)
+            grid-template-columns: 1fr 
+        @include media-in(desktop)
+            grid-template-columns: 1fr 1fr
+    .picture__image_detail
+        box-sizing: border-box
+        img
+            border-radius: 10px 0px 10px 0px
+            width: 100%
+            height: auto
+            @include media-in(tablet)
+                object-fit: cover
+    .detail__information
+        display: grid
+        position: relative
+        grid-template-columns: 1
+        @include media-in(desktop)
+            padding-left: 10px
+        gap : 12px
+        grid-auto-rows: minmax(min-content, max-content)
+        .bookmark-detail
+            position: absolute
+            top : 0
+            right : 0
+            width: 4rem
+            border: none
+            i
+                font-size: 2rem
+        small
+            padding-left: 8px
+            font-weight: bold
+        .guide
+            padding-top: 8px
+        .detail___title
+            padding-left: 8px
+            line-height: 18px
+            font-size: 1.5rem
+        .rating___detail
+            display: inline-flex
+            font-size: 0.9rem
+            color: var(--primary)
+            padding-left: 6px
+        .category___detail
+            display: grid
+            padding-left: 8px
+            .category_title
+                font-size: 1rem
+                line-height: 22px
+            .category_item
+                display: grid
+                grid-template-columns: 30% 30% 30%
+                gap:20px
+                padding: 8px
+                p
+                    border-left: 2px solid var(--primary)
+                    line-height: 12px
+                    padding: 8px
+                    text-align: center
+        .description___detail
+            padding-left: 8px
+            padding-right: 8px
+            text-align: justify
+            font-size: 1rem
+        button
+            width: 12.6rem
+            margin-left: 8px
+    .detail__filtur
+        padding-bottom: 8px
+        padding-left: 8px
+        padding-right: 8px
+        margin-top: 20px
+        .collapsible-review
+            height: auto
+            transition: all .3s
+            .collapsible-btn
+                background-color: var(--primary)
+                color: white
+                position: relative
+                cursor: pointer
+                padding: 18px
+                width: 100%
+                border: none
+                text-align: left
+                outline: none
+                font-size: 15px
+                &:hover
+                    background-color:  #555 
+                &:focus
+                    background-color:  #555 
+                &::after
+                    content: '\002B'
+                    color: white
+                    font-weight: bold
+                    position: absolute
+                    font-size: 2rem
+                    right : 0
+                    margin-right: 8px
+                    line-height: 15px
+            .active
+                background-color:  map-get($colors, "primary")
+                &:hover
+                    background-color: #555    
+                &::after
+                    content: "\2212"   
+            .content-collapsible
+                padding: 8px
+                display: block
+                &:focus-within
+                    max-height: none
+                max-height: 0px
+                overflow: hidden
+                transition: max-height 0.2s ease-out
+                width: 100%
+                position: relative
+                .list-review
+                    &::focus + .content-collapsible
+                        max-height: none
+                    .review-costumer
+                        display: grid
+                        gap:8px
+                        grid-template-columns: 100%
+                        @include media-in(desktop)
+                            grid-template-columns: 49% 49%
+                    .review-item
+                        overflow: auto
+                        padding: 8px
+                        letter-spacing: 1px
+                        background-color: var(--bgColor)
+                        h3
+                            font-size: 0.9rem
+                            padding: 2px
+                            box-sizing: border-box
+                        p
+                            font-size: 0.8rem
+                            padding: 2px
+                            box-sizing: border-box
+                        small
+                            font-size: 0.7rem
+                            span
+                                font-size: 0.8rem
+                .form-review
+                    margin-top: 20px
+                    display: grid
+                    grid-template-columns: 1fr 
+                    gap : 8px 16px
+                    box-sizing: border-box
+                    @include media-in(tablet)
+                        grid-template-columns: 1fr
+                    @include media-in(desktop)
+                        grid-template-columns: 28% 50% 18%
+                    button
+                        margin-top: 8px
+        .menu__restaurant-filtur
+            display: grid
+            margin-top: 20px
+            grid-template-columns: 1fr
+        
+
+.explore__menu_restaurant
+    margin-top: 20px
+    display: grid
+    grid-template-columns: 1fr 1fr 
+    @include media-in(tablet)
+        grid-template-columns: 1fr 1fr 1fr
+    @include media-in(desktop)
+        grid-template-columns: 1fr 1fr 1fr 1fr
+    gap:20px
+    .msg-failed
+        grid-column-start: 1
+        grid-column-end: 3
+        @include media-in(tablet)
+            grid-column-start: 1
+            grid-column-end: 4
+        @include media-in(desktop)
+            grid-column-start: 1
+            grid-column-end: 5
+        
+    .item__menu_restaurant
+        display: grid
+        grid-template-columns: 1fr
+        @include media-in(tablet)
+            grid-template-columns: 1fr 1fr 1fr
+        @include media-in(desktop)
+            grid-template-columns: 1fr 1fr 1fr  
+        .picture__item
+            padding: 8px
+            box-sizing: border-box
+            width: 100%
+            height: auto
+        .name__item
+            @include media-in(tablet)
+                grid-column-start: 2
+                grid-column-end: 4
+                font-size: 0.8rem
+            box-sizing: border-box
+            padding: 20px 8px 8px 8px
+            line-height: 16px
+            font-size: 0.7rem
+            position: relative
+            .line
+             display: inline-block
+             width : 60%
+             border-top : 2px solid var(--textColor)
+
+.line
+    display: inline-block
+    width : 60%
+    border-top : 2px solid var(--textColor)
+             
+                

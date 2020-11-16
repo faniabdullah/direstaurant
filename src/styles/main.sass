@@ -1,0 +1,302 @@
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=swap')
+
+// Core
+@import core/variables
+@import core/mixins
+@import core/helper
+
+// Components
+@import components/navbar
+@import components/button
+@import components/card
+@import components/restaurant
+@import components/restaurant-detail
+@import components/bookmark-page
+@import components/input-group
+@import components/loading
+@import components/toast
+
+
+
+.mode-theme
+    transition: all .3s
+    position: relative
+.set-mode
+    transition: all .3s
+    position: fixed
+    border-radius: 34px 8px 34px 34px
+    bottom: 6px
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+    background-color: #fff!important
+    color: #757575!important
+    border-color: #e3e3e3!important
+    right: 5px
+    z-index: 9995
+    height: 60px
+    width: 60px
+    text-align: center
+    box-sizing: border-box
+    line-height: 10px
+    font-size: 44px
+    
+.why-me
+    text-align: center
+    display: grid
+    grid-template-columns: 1fr
+    gap: 16px 20px
+    .__label
+        font-size: 30px
+        margin-top: 20px
+    .content
+        display: grid
+        grid-template-columns: repeat(1,1fr)
+        gap : 10px
+        box-sizing: border-box
+        @include media-in(tablet)
+            grid-template-columns: repeat(3,1fr)
+        @include media-in(desktop)
+            grid-template-columns: repeat(4,1fr)
+        div
+            display: grid
+            box-sizing: border-box
+            padding: 10px
+            grid-template-columns: 1fr
+            gap : 8px 8px
+            @include media-in(tablet)
+                font-size: 1rem
+            @include media-in(desktop)
+                font-size: 1rem
+            .icons-why-me
+                font-size: 80px
+
+.content-populer
+    margin-top: 20px
+    display: grid
+    grid-template-columns: 1fr
+    error-content
+        margin: 40px
+    .content__label
+        padding-left: 20px
+    .post-content__populer
+        display: grid
+        gap : 16px
+        overflow : auto
+        padding: 20px
+        grid-template-columns: 80%
+        -moz-column-gap: 5px
+        grid-auto-columns: 80%
+        grid-auto-flow: column
+        @include media-in(tablet)
+            grid-template-columns: repeat(2, 50%)
+            grid-auto-columns: 50%
+        @include media-in(desktop)
+            grid-template-columns: repeat(2, 50%)
+            grid-auto-columns: 50%
+    
+.content__explore-restaurant
+    display: grid
+    padding-left: 20px
+    padding-right: 20px
+    grid-template-columns: 1fr
+    transition: opacity .5s ease
+    gap : 20px
+    @include media-in(desktop)
+        grid-template-columns: 1fr  1fr
+    @include media-in(tablet)
+        grid-template-columns: 1fr  1fr
+    error-content
+        margin: 40px
+        .msg-failed
+            a
+                background-color: map-get($colors,'primary' )
+                color: white
+        @include media-in(desktop)
+            grid-column-start: 1
+            grid-column-end: 3 
+        @include media-in(tablet)
+            grid-column-start: 1
+            grid-column-end: 3 
+    pre-loader
+        @include media-in(desktop)
+            grid-column-start: 1
+            grid-column-end: 3 
+        @include media-in(tablet)
+            grid-column-start: 1
+            grid-column-end: 3 
+    .content__label
+            text-align: center
+            font-size: 2rem
+            @include media-in(desktop)
+                grid-column-start: 1
+                grid-column-end: 3 
+            @include media-in(tablet)
+                grid-column-start: 1
+                grid-column-end: 3 
+    .filtur-restaurant
+        grid-column-start: 1
+        grid-column-end: 3
+        padding-right: 20px
+        display: grid
+        gap : 2%
+        grid-template-columns: 100%
+        @include media-in(tablet)
+            font-size: 1rem
+            padding-right:  0px
+            grid-template-columns: 78% 20%
+        @include media-in(desktop)
+            padding-right:  0px
+            grid-template-columns: 88% 10%
+        search-element
+            position: relative
+        .elm-filter
+            width: 100%
+            text-align: right
+            box-sizing: border-box
+            @include media-in(desktop)
+                text-align: right
+                padding-left: 0px
+            padding-left: 10px
+            padding-top: 10px
+            button
+                font-size: 0.8rem
+                width: 40%
+                @include media-in(tablet)
+                    width: 100%
+                @include media-in(desktop)
+                    width: 100%
+                position: relative
+                background-color: var(--primary)
+                border-color: var(--primary)
+                color: white
+                border-radius: 4px
+                padding-left: 32px
+                .input-icons
+                    position: absolute
+                    left: 5px
+                    top: 8px
+        #list-filter
+            display: grid
+            transition: all .3s
+            margin-top: 10px
+            grid-column-start: 1
+            grid-column-end: 2
+            padding-right: 20px
+            gap : 10px
+            grid-template-columns: repeat(2,1fr)
+            @include media-in(tablet)
+                grid-template-columns: repeat(4,1fr)
+            @include media-in(desktop)
+                grid-template-columns: repeat(6,1fr)
+            button
+                transition: all .3s
+                position: relative 
+                background-color: var(--bgInput)
+                color: var(--textColor)
+                overflow: hidden
+                font-size: 1.1rem
+                z-index: 1
+                line-height: 40px
+                box-sizing: border-box
+                width: 100%
+                &:before, &:after
+                    content: ''
+                    position: absolute
+                    bottom: 0
+                    left: 0
+                    width: 0%
+                    height: 100%
+                    background-color: var(--primary) 
+                    transition: all .3s
+                    font-weight: 700
+                    z-index: -1
+                &:hover, &:focus
+                    color: white
+                    &:before
+                        width: 100% !important
+
+    .post__content_restoran
+        display: grid
+        gap : 25px
+        grid-template-columns: 1fr
+        @include media-in(tablet)
+            grid-template-columns: 1fr 1fr
+            grid-column-start: 1
+            grid-column-end: 3 
+        @include media-in(desktop)
+            grid-template-columns: 1fr 1fr
+            grid-column-start: 1
+            grid-column-end: 3 
+        .msg-failed
+            @include media-in(tablet)
+               grid-column-start: 1
+               grid-column-end: 3 
+    .post-item__content
+        @include media-in(desktop)
+            grid-column-start: auto
+            grid-column-end: auto
+    
+
+footer
+    display: grid
+    box-sizing: border-box
+    grid-template-columns: 1fr   
+    transition: all .1s
+.footer_app
+    min-height: 80px
+    padding-bottom: 8px
+    display: inline-grid
+    justify-items: center
+    grid-template-columns : 1fr
+    box-sizing: border-box
+    .footer__label
+        font-weight: 300
+        font-size: 1.2rem
+        .logo-background
+            font-weight: 700
+            background-color: var(--primary)
+            color: #ffffff
+
+.back-to-top
+        color: map-get($colors,'primary' )
+        background-color: #efefef
+        min-height: 45px
+        border: 0px
+        border-radius: 8px
+        box-sizing: border-box
+        &:focus
+            border: 2px solid var(--primary)
+        .icon-top
+            font-size: 35px
+            font-weight: bold
+            line-height: 0px
+.skip-link 
+   position: absolute
+   top: -100px
+   left: 0
+   padding: 8px
+   transition: all .3s
+   background-color: var(--primary)
+   color: #ffffff
+   display: inline-block
+   z-index: 1003
+   border-radius: 10px
+   &:focus
+       top: 0
+
+$skeleton: #cfcfcf
+
+.skeleton
+    *
+        &:focus
+            outline: 0 !important
+    p, h2, h3, a, span, small, button, footer, ul, form, img 
+        transition: 0
+        border: 0 !important
+        pointer-events: none
+        user-select: none
+        color: $skeleton !important
+        background-color: $skeleton !important
+    li
+        &::before
+            @extend p

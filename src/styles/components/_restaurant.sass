@@ -1,0 +1,114 @@
+.post-item__content
+    border-radius: 10px 0px 10px 0px
+    display: grid
+    grid-template-columns: 1fr
+    box-sizing: border-box
+    @include media-in(tablet)
+        grid-template-columns: 1fr
+    @include media-in(desktop)
+        grid-template-columns: 1fr 1fr
+            
+.post-item__image
+    width: 100%
+    position: relative
+    box-sizing: border-box
+    img
+        border-radius: 10px 0px 10px 0px
+        width: 100%
+        height: 300px
+        object-fit: cover
+        @include media-in(tablet)
+            height: 300px
+            object-fit: cover
+        @include media-in(desktop)
+            height: 224px
+            position: absolute
+            bottom: 0
+            top: 0
+            overflow: hidden
+
+.post-item__detail
+    display: grid
+    gap : 8px
+    grid-auto-rows: minmax(min-content, max-content)
+    grid-template-columns: repeat(1,1fr)
+    @include media-in(tablet)
+       grid-template-columns: repeat(5,1fr)
+       gap : 10px
+    .post-item__title
+        padding-left: 8px
+        box-sizing: border-box
+        margin-top: 5px
+        @include media-in(tablet)
+            grid-column-start: 1
+            grid-column-end: 6
+    .post-item__rating
+        display: inline-flex
+        color: var(--primary)
+        padding-left: 6px
+        font-size: 0.8rem
+        @include media-in(tablet)
+            grid-column-start: 1
+            grid-column-end: 6
+    .post-item__info
+        padding-left: 8px
+        font-size: 1.2rem
+        @include media-in(tablet)
+            grid-column-start: 1
+            grid-column-end: 6 
+    .post-item__action
+        position: relative
+        bottom: 0
+        border-radius: 10px
+        @include media-in(tablet)
+            grid-column-start: 1
+            grid-column-end: 6
+        .btn__grup
+            position: relative
+            bottom: 0
+            display: grid
+            align-items: right
+            grid-template-columns: repeat(4, 1fr)
+            text-align: right
+            .btn__borkmark
+                grid-column-start: 2
+                background-color: var(--bgColor)
+                border: 0px
+                bottom: 0px
+                height: 45px
+                &:focus
+                    border: 2px solid var(--primary)
+            .btn__detail
+                grid-column-start: 3
+                grid-column-end: 5
+                color: #ffffff
+                font-weight: 700
+                background-color:  var(--primary)
+                border-radius: 0px 0px 10px 0px
+                height: 45px
+                text-align: center
+                position: relative 
+                overflow: hidden
+                font-size: 1.1rem
+                z-index: 1
+                line-height: 40px
+                box-sizing: border-box
+                &:before, &:after
+                    content: ''
+                    position: absolute
+                    bottom: 0
+                    left: 0
+                    width: 0%
+                    height: 100%
+                    background-color: var(--bgInput)
+                    transition: all .3s
+                    font-weight: 700
+                    z-index: -1
+                &:hover, &:focus
+                    color: var(--primary)
+                    &:before
+                        width: 100% !important
+
+
+
+            

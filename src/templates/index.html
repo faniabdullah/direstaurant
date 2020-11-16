@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content=" direstaurant Cari, Explore dan simpan Restoran pilihan favoritmu">
+    <link rel="icon" type="image/png" href="./images/icon.png" alt="icon">
+    <link rel="apple-touch-icon" href="./images/icon.png" alt="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://restaurant-api.dicoding.dev/">
+    <link rel="dns-prefetch" href="https://restaurant-api.dicoding.dev/">
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+    <title>direstaurant</title>
+</head>
+<body>
+    <a href="#restaurantContent" id="skip-content" class="forward skip-link card-1 "> Menuju ke konten  <i class="material-icons" aria-hidden="true">skip_next</i></a>
+    <header class="header-apps">
+        <app-bar></app-bar>
+    </header>
+    
+    <main role="main" id="mainContent" class="skeleton">
+            <div class="hero">
+                <img src="./images/placeholder.jpg" alt="for skeleton">
+            </div>
+            <show-case></show-case>
+            <section class="content-populer">
+              <h2 class="content__label"> Lagi Populer nih !!</h2>
+              <div id="restaurantPopularContent" class="content-populer">
+              </div>
+            </section>
+
+            <section id="restaurantContent" class="content__explore-restaurant mt2">
+                <h2 class="content__label"> Jelajahi Restoran </h2>
+                <div class="filtur-restaurant">
+                    <search-element></search-element>
+                    <filter-element></filter-element>
+                    <div id="list-filter"></div>
+                </div>
+                <div id="explore-restaurant"></div>
+            </section>
+    </main>
+    
+    <set-mode></set-mode>
+    <footer-element></footer-element>
+    <div id="toast-notification"></div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+*
+  margin: 0
+  padding: 0
+  border: 0
+  box-sizing: border-box
+
+main
+  min-height: 95vh
+  
+html, body
+  font-family: $noto-sans
+  scroll-behavior: smooth
+  color: var(--textColor)
+  @include full-size
+
+html 
+  background: var(--Bgcolor) 
+  --primary: #bc5100
+  --Bgcolor: #F9F9F9
+  --textColor: #232323 
+  --bgInput : #F9F9F9 
+
+html[data-theme='dark'] 
+  background: var(--Bgcolor) 
+  --primary: rgb(206,128,69)
+  --Bgcolor: #232323 
+  --textColor: rgb(255, 255, 255,0.87)
+  --bgInput : #232323 
+
+
+.hero
+    @include full-size
+    position: relative
+    height: 480px
+
+    img
+        perspective: 4px
+
+    .overlay
+        padding: 0 2rem
+        width: 100%
+        height: 100%
+        top: 0
+        color: white
+        position: absolute
+        @include flex
+        background-color: rgba(0,0,0,0.6)
+
+        .content
+            font-size: 1.25rem
+            text-align: center
+            margin: auto
+            .title
+                font-size: 2rem
+    img
+        @extend .hero
+        object-fit: cover
+
+  
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after 
+  transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms!important 
+  transition-delay: 0!important 
+
+body
+  min-height: 100vh
+  width: 100%
+ 
+h2
+  font-size: 1.5rem
+
+a
+  min-width: 44px
+  min-height: 44px
+  text-decoration: none
+  
+button
+  min-width: 44px
+  min-height: 44px 
+  &:hover
+    cursor: pointer
+    
+//Helpers
+.hide
+  display: none
+
+*
+  &:focus
+    outline: 3px solid #d57149
+
+
+.material-icons
+  padding-bottom: 3px
+  user-select: none
+  vertical-align: middle !important
+  &.inherit
+    font-size: inherit
+
+.color-primary
+  color: var(--primary)
+
+.center
+  text-align: center
+
+.msg-failed
+  text-align: center
+  span
+    font-size: 3rem
+    color: var(--primary)
+
+

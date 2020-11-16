@@ -1,0 +1,139 @@
+
+header
+    position: fixed!important
+    top: 0
+    right: 0
+    left: 0
+    z-index: 1001
+    background-color: #ffffff
+
+app-bar
+    transition: all .3s
+    grid-template-columns: 1fr 1fr
+    display: grid
+    position: sticky
+    background-color: var(--bgInput)
+    top : 0
+    align-content: right
+    @include media-in(tablet)
+        grid-template-columns: 1fr 1.5fr 
+        display: grid
+    @include media-in(desktop)
+        grid-template-columns: 2fr 1.5fr 
+        display: grid
+    .title
+        padding : 3px
+        .text-logo
+            font-size: 2rem
+            font-weight: 400
+        .logo-background
+            background-color: var(--primary)
+            color: #ffffff
+            font-weight: 700
+            letter-spacing: 2px
+    .header__menu
+         transition: all .3s
+         display: block
+         opacity: 1
+         font-size: 1rem
+         box-sizing: border-box
+         padding: 3px
+         text-align: right
+         button
+            transition: all .3s
+            min-width: 50px
+            min-height: 50px
+            background-color: #efefef
+            border-radius : 10px 0px 0px 0px
+            box-sizing: border-box
+            span
+                transition: all .3s
+                padding: 0.5rem 0.5rem
+                box-sizing: border-box
+         @include media-in(tablet)
+            display: none
+         @include media-in(desktop)
+            display: none  
+.nav
+    width: 50%
+    position: fixed
+    height: 100vh
+    z-index: 100
+    top : 55px
+    right: 0
+    background-color: var(--bgInput)
+    -webkit-transform: translate(350px, 0)
+    transform: translate(350px, 0)
+    transition: transform 0.3s ease
+    a
+        text-decoration: none
+        display: inline-block
+        transition: all .3s
+        box-sizing: border-box
+        color: var(--textColor)
+        padding: 12px
+        min-height: 50px
+        @include media-in(tablet)
+            padding: 10px
+            min-height: 44px
+        @include media-in(desktop)
+            padding: 10px
+            min-height: 44px
+    &.open
+        right: 0
+        -webkit-transform: translate(0, 0)
+        transform: translate(0, 0)
+        transition: all .3s
+    @include media-in(tablet)
+        width: 100%
+        height: auto
+        position: relative
+        display: block
+        top : 0
+        right: 0
+        -webkit-transform: translate(0px, 0)
+        transform: translate(0px, 0)
+        transition: transform 0.3s ease
+    @include media-in(desktop)
+        width: 100%
+        height: auto
+        position: relative
+        display: block
+        top : 0
+        left: 0
+        -webkit-transform: translate(0px, 0)
+        transform: translate(0px, 0)
+        transition: transform 0.3s ease
+
+.nav__list 
+    width: 100%
+    height: 100%
+    display: grid
+    grid-template-columns: 1fr
+    grid-auto-rows: minmax(min-content, max-content)
+    gap : 5px
+    @include media-in(tablet)
+        display: grid
+        grid-template-columns: 1fr  1fr 1fr
+        text-align: center
+    @include media-in(desktop)
+        display: grid
+        grid-template-columns: 1fr  1fr 1fr
+        text-align: center
+
+.nav__item 
+    box-sizing: border-box
+    list-style-type: none
+    width: 100%
+    display: grid
+    grid-auto-columns: 1fr
+    @include media-in(tablet)
+        display: -ms-inline-grid
+        line-height: 24px
+        list-style-type: none
+        text-transform: uppercase
+    @include media-in(desktop)
+        display: -ms-inline-grid
+        line-height: 24px
+        list-style-type: none
+        text-transform: uppercase

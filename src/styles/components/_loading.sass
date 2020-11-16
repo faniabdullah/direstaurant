@@ -1,0 +1,28 @@
+
+pre-loader
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+
+.preloader-blue 
+    width: 3rem
+    height: 3rem
+    margin: 2rem
+    border-radius: 50%
+    border: 0.1rem solid #64b5f6
+    border-top-color: #e3f2fd
+    animation: 0.8s spin infinite linear
+    @include media-in(tablet)
+      width: 4rem
+      height: 4rem
+    @include media-in(desktop)
+      width: 4rem
+      height: 4rem
+
+
+@keyframes spin 
+  0%
+    transform: rotate(0deg) 
+  100%
+    transform: rotate(360deg) 
