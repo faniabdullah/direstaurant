@@ -6,7 +6,7 @@ final submission course "Menjadi Front-End Web Developer Expert" at dicoding
 ![GitHub watches](https://img.shields.io/github/stars/faniabdullah/direstaurant?style=social)
 ![GitHub last commit](https://img.shields.io/github/last-commit/faniabdullah/direstaurant)
 
-direstaurant-app is an application that displays a list of restaurants.
+direstaurant is an application that displays a list of restaurants.
 Developed as a submission to the course "Menjadi Front-End Web Developer Expert" at Dicoding. Check the live [here]((https://direstaurant.web.app/)
 
 ## Features
@@ -28,7 +28,7 @@ You can search for the restaurant menu.
 * **Filtering Popular Restaurant**,
 filtering restaurant based on rating [auto].
 
-* **Review Restaurant**,
+* **ADD Review Restaurant**,
 
 * **Dark - Light Mode**,
 You can change the dark / light theme.
