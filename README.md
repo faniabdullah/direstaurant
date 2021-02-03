@@ -28,6 +28,8 @@ You can search for the restaurant menu.
 * **Filtering Popular Restaurant**,
 filtering restaurant based on rating [auto].
 
+* **Review Restaurant**,
+
 * **Dark - Light Mode**,
 You can change the dark / light theme.
 
@@ -52,10 +54,10 @@ You can change the dark / light theme.
 
 - [Webpack](https://webpack.js.org/)
 - [Workbox](https://developers.google.com/web/tools/workbox)
-- [PWA](https://developers.google.com/web/progressive-web-apps)
+- [PWA](https://developers.google.com/web/progressive-web-apps) 
 - [IndexedDB](https://developers.google.com/web/ilt/pwa/working-with-indexeddb)
-- [HTML](https://www.w3schools.com/html/)
-- [CSS](https://www.w3schools.com/css/)
+- [WEB COMPONENTS](https://www.webcomponents.org/)
+- [SASS](https://sass-lang.com/)
 - [JS](https://www.javascript.com/)
 
 ### Testing
