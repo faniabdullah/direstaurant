@@ -18,5 +18,5 @@ class ToastElement extends HTMLElement {
   }
 }
 
-
 customElements.define('toast-element', ToastElement);
+

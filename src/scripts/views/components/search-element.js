@@ -9,7 +9,6 @@ class SearchElement extends HTMLElement {
     this._eventSearch = event;
     this._render();
   }
-
   get value() {
     return this.querySelector('#elmSearchRestaurant').value;
   }
@@ -18,13 +17,12 @@ class SearchElement extends HTMLElement {
                           <div class="input-group">
                           <i class="material-icons input-icons" >search</i>
                             <input type="text" class="input-area" required id="elmSearchRestaurant"/>
-                            <label for="elmSearchRestaurant" class="label">Cari Restaurant</label>
+                            <label for="elmSearchRestaurant" class="label"> Cari Restaurant </label>
                           </div>
                     </div>`;
 
-    this.querySelector('#elmSearchRestaurant').addEventListener('change', this._eventSearch);
+    this.querySelector('#elmSearchRestaurant').addEventListener('keyup', this._eventSearch);
   }
 }
-
 customElements.define('search-element', SearchElement);
 

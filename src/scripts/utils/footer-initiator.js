@@ -1,5 +1,5 @@
 const FooterInitiator = {
-  init(footerElm) {
+  async init(footerElm) {
     this._footerElm = footerElm;
     this._setEvent();
   },

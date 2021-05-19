@@ -1,6 +1,6 @@
 const CONFIG = {
   TOKEN: '12345',
-  BASE_URL: 'https://restaurant-api.dicoding.dev/',
+  BASE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/',
   BASE_IMAGE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/images/',
   IMAGE_DEFAULT_FOOD_URL: './images/default-food.png',
   IMAGE_DEFAULT_DRINK_URL: './images/default-drink.png',

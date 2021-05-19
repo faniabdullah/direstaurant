@@ -1,67 +1,91 @@
-
+import '../views/components/restaurant-item';
+import ApiRestaurant from '@/data/api-restaurant';
+import BookmarkInitiator from '@/utils/bookmark-initiator';
 
 /* Hello mr/mrs. this is a filter data manually,because the server does not provide filtering
   by category.and in the main data there is no category data. so you must first retrieve detailed
-  data through the main data id to retrieve the category list. Thanks*/
+  data through the main data id to retrieve the category list and event category. Thanks*/
 
 const FilterRestaurantInitiator = {
-  init({data, content, elmFilter, apiRestaurant}) {
+  init({data, content, elmFilter}) {
     this._data = data;
     this._content = content.querySelector('#explore-restaurant');
-    this._listFilter = document.querySelector('#list-filter');
-    this._searhElement = document.querySelector('#elmSearchRestaurant');
     this._elmFilter = elmFilter;
     this._listCategories = [];
-    this._ApiRestaurant = apiRestaurant;
-
-    this._setEvent(this._data);
+    this._setEvent();
+    this._setCategory(this._data);
   },
 
-  _setEvent(data) {
+  async _setEvent() {
     const eventFilterRestaurant = async () => {
-      this._listCategories = [];
-      if (this._listFilter.innerHTML === '') {
-        await this._showCategory(data);
+      if (this._elmFilter.value === '') {
+        await this._showAll();
       } else {
-        this._listFilter.innerHTML = ``;
+        await this._showFilter();
       }
     };
-    this._elmFilter.eventClick = eventFilterRestaurant;
+    this._elmFilter.eventChange = eventFilterRestaurant;
   },
 
-  async _setEventButton() {
-    const buttonFilter = this._listFilter.querySelectorAll('button');
-    buttonFilter.forEach((button) =>{
-      button.addEventListener('click', () =>{
-        this._searhElement.value = button.innerHTML;
-        this._searhElement.dispatchEvent(new Event('change'));
+  _showFilterError() {
+    this._content.innerHTML = 'Tidak dapat MemFilter Data karena jaringan koneksi anda';
+  },
+
+  async _showAll() {
+    this._content.innerHTML = '';
+    await this._data.forEach(async (restaurant) => {
+      await this._createElement(restaurant);
+    });
+    this._initBookmark();
+  },
+
+  async _createElement(restaurant) {
+    const restaurantItemElement = document.createElement('restaurant-item');
+    restaurantItemElement.restaurant = restaurant;
+    this._content.appendChild(restaurantItemElement);
+  },
+
+  async _showFilter() {
+    this._content.innerHTML = '';
+    await this._data.forEach( async (restaurant) => {
+      const restaurantDetail = await ApiRestaurant.getRestaurantDetail(restaurant.id);
+      await restaurantDetail.restaurant.categories.forEach(async (category)=>{
+        if (this._elmFilter.value.toUpperCase() === category.name.toUpperCase() ) {
+          await this._createElement(restaurant);
+          this._initBookmarkFromFilter(restaurant.id);
+        }
       });
     });
   },
 
-  async _showCategory(data) {
-    await data.forEach(async (restaurant)=>{
-      const getDetail = await this._ApiRestaurant.getRestaurantDetail(restaurant.id);
-      await this._getCategory(getDetail);
+  async _setCategory(restaurants) {
+    await restaurants.forEach(async (restaurant)=>{
+      const getDetail = await ApiRestaurant.getRestaurantDetail(restaurant.id);
+      const getCategories = await this._getCategory(getDetail);
+      this._elmFilter.filterList = getCategories;
     });
   },
 
   async _getCategory(data) {
-    await data.restaurant.categories.forEach( (category)=>{
+    data.restaurant.categories.forEach((category)=>{
       if (this._listCategories.indexOf(category.name) === -1) {
         this._listCategories.push(category.name);
-        this._createElementButton(category.name);
       }
+    });
+    return this._listCategories;
+  },
+
+  async _initBookmark() {
+    const bookmarkButton = this._content.querySelectorAll('button[data-bookmark]');
+    bookmarkButton.forEach( async (button) => {
+      await BookmarkInitiator.init(button);
     });
   },
 
-  _createElementButton(name) {
-    const button = `<button class="card-1" data-filter = ${name} aria-label ="filter restaurant">${name}</button>`;
-    this._listFilter.innerHTML += button;
-    this._setEventButton();
+  async _initBookmarkFromFilter(id) {
+    const bookmarkButton = this._content.querySelector(`button[data-bookmark = '${id}' ]`);
+    await BookmarkInitiator.init(bookmarkButton );
   },
-
-
 };
 
 export default FilterRestaurantInitiator;

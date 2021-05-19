@@ -1,9 +1,12 @@
 import ApiRestaurant from '@/data/api-restaurant';
 import UrlParser from '@/routes/url-parser';
+import '@/views/components/detail-restaurant-information';
+import '@/views/components/detail-restaurant-review';
+import '@/views/components/detail-restaurant-search';
+import '@/views/components/pre-loader';
 import DetailRestaurantInformationInitiator from '@/utils/detail-restaurant-information-initiator';
 import DetailRestaurantReviewInitiator from '@/utils/detail-restaurant-review-initiator';
 import DetailRestaurantMenuInitiator from '@/utils/detail-restaurant-menu-initiator';
-
 
 const DetailRestaurant = {
   async render() {
@@ -27,7 +30,6 @@ const DetailRestaurant = {
     try {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const restaurantDetail = await ApiRestaurant.getRestaurantDetail(url.id);
-
       await this._initialDetailPage(restaurantDetail);
       await this._removeLoading(container);
     } catch (error) {
@@ -55,7 +57,7 @@ const DetailRestaurant = {
 
   async _initialDetailPage(restaurantDetail) {
     await DetailRestaurantInformationInitiator.init(restaurantDetail, document.querySelector('detail-restaurant-information'));
-    await DetailRestaurantReviewInitiator.init(restaurantDetail, document.querySelector('detail-restaurant-review'));
+    DetailRestaurantReviewInitiator.init(restaurantDetail, document.querySelector('detail-restaurant-review'));
     DetailRestaurantMenuInitiator.init({
       data: restaurantDetail,
       elmMenus: document.querySelector('.explore__menu_restaurant'),

@@ -20,5 +20,5 @@ class SearchMenu extends HTMLElement {
     this.querySelector('#elmSearchMenu').addEventListener('keyup', this._eventSearch);
   }
 }
-
 customElements.define('detail-restaurant-search', SearchMenu);
+

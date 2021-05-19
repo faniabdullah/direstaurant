@@ -38,5 +38,5 @@ class MenuItem extends HTMLElement {
     return item;
   }
 }
-
 customElements.define('menu-item', MenuItem);
+

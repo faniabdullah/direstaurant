@@ -1,42 +1,38 @@
-
+import '../views/components/restaurant-item';
+import BookmarkInitiator from '@/utils/bookmark-initiator';
 
 const RestaurantPopularInitiator = {
-  init({data, listContainer, content, bookmarkPresenter, bookmarkRestaurant, toastInitiator, apiRestaurant}) {
+  async init({data, listContainer, content}) {
     this._listContainer = listContainer;
     this._data = data;
     this._content = content;
-    this._BookmarkPresenter = bookmarkPresenter;
-    this._BookmarkRestaurant = bookmarkRestaurant;
-    this._ApiRestaurant = apiRestaurant;
-    this._ToastInitiator = toastInitiator;
-
-    this._initialContentPopular();
-  },
-
-  _initialContentPopular() {
     this._content.innerHTML = '';
+
     this._data.filter((restaurant)=> parseFloat(restaurant.rating) > 4.5)
         .map((filteredRestaurant) => {
           const restaurantItemElement = document.createElement('restaurant-item');
           restaurantItemElement.restaurant = filteredRestaurant;
           this._listContainer.appendChild(restaurantItemElement);
-          this._initBookmark(this._listContainer, filteredRestaurant.id);
         });
+    this._listContainer.classList.add('post-content__populer');
 
-    if ( this._content.querySelector('pre-loader')) {
+    if ( await this._isPreLoaderExist(this._content)) {
       this._content.querySelector('pre-loader').remove();
     }
-    this._listContainer.classList.add('post-content__populer');
+
     this._content.appendChild(this._listContainer);
+    this._initBookmark();
   },
 
-  _initBookmark(container, id) {
-    const bookmarkButton = container.querySelector(`button[data-bookmark = '${id}' ]`);
-    this._BookmarkPresenter.init({
-      bookmarkButton: bookmarkButton,
-      ApiRestaurant: this._ApiRestaurant,
-      ToastInitiator: this._ToastInitiator,
-      BookmarkRestaurant: this._BookmarkRestaurant,
+  async _isPreLoaderExist(container) {
+    const preLoader = container.querySelector('pre-loader');
+    return preLoader;
+  },
+
+  _initBookmark() {
+    const bookmarkButton = this._listContainer.querySelectorAll('button[data-bookmark]');
+    bookmarkButton.forEach( async (button) => {
+      await BookmarkInitiator.init(button);
     });
   },
 };

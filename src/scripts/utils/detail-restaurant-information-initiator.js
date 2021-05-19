@@ -1,7 +1,4 @@
-import BookmarkPresenter from '@/utils/bookmark-presenter';
-import BookmarkRestaurant from '@/data/restaurant-bookmark-idb';
-import ToastInitiator from '@/utils/toast-initiator';
-import ApiRestaurant from '@/data/api-restaurant';
+import BookmarkInitiator from '@/utils/bookmark-initiator';
 import UrlParser from '../routes/url-parser';
 
 const DetailRestaurantInformationInitiator = {
@@ -11,19 +8,10 @@ const DetailRestaurantInformationInitiator = {
     this._elmInformation = elmInformation;
     this._elmInformation.detailRestaurant = this._data;
     this._bookmarkButton = this._elmInformation.querySelector(`button[data-bookmark = '${this._data.restaurant.id}']`);
-
-    this._BookmarkRestaurant = BookmarkRestaurant;
-    this._ApiRestaurant = ApiRestaurant;
-    this._ToastInitiator = ToastInitiator;
     await this._initBookmark();
   },
   async _initBookmark() {
-    await BookmarkPresenter.init({
-      bookmarkButton: this._bookmarkButton,
-      ApiRestaurant: this._ApiRestaurant,
-      ToastInitiator: this._ToastInitiator,
-      BookmarkRestaurant: this._BookmarkRestaurant,
-    });
+    await BookmarkInitiator.init(this._bookmarkButton);
     document.addEventListener('keyup', this._keyEvent.bind(this));
   },
 

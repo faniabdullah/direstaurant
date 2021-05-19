@@ -1,12 +1,10 @@
 // Karma configuration
 // Generated on Fri Jul 03 2020 20:15:52 GMT+0700 (Western Indonesia Time)
-const webpackConfig = require('./webpack.common.js');
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-    restartBrowserBetweenTests: true,
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -33,13 +31,6 @@ module.exports = function(config) {
       // webpack configuration
       devtool: 'inline-source-map',
       mode: 'development',
-      module: webpackConfig.module,
-      resolve: webpackConfig.resolve,
-    },
-    client: {
-      jasmine: {
-        random: false,
-      },
     },
 
     webpackMiddleware: {
@@ -51,7 +42,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
+    reporters: ['progress'],
 
     // web server port
     port: 9876,
@@ -74,8 +65,7 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
-    action: 'run',
-    captureConsole: false,
+
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,

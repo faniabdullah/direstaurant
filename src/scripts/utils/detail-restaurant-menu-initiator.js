@@ -1,4 +1,4 @@
-
+import '@/views/components/detail-restaurant-menu-item';
 const DetailRestaurantMenuInitiator = {
   init({data, elmMenus, elmSearchMenus}) {
     this._menuFoods = data.restaurant.menus.foods;

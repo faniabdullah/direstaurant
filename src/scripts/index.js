@@ -1,10 +1,9 @@
 import 'regenerator-runtime'; /* for async await transpile */
-import 'lazysizes';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import '../styles/main.sass';
 import './views/components/app-bar';
 import './views/components/mode-element';
 import './views/components/show-case';
+import './views/components/hero-jumbotron';
 import './views/components/footer-element';
 import './views/components/content-popular';
 import swRegister from '@/utils/sw-register';

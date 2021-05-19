@@ -8,7 +8,6 @@ header
     background-color: #ffffff
 
 app-bar
-    transition: all .3s
     grid-template-columns: 1fr 1fr
     display: grid
     position: sticky
@@ -23,6 +22,7 @@ app-bar
         display: grid
     .title
         padding : 3px
+        font-family: $quick-sans
         .text-logo
             font-size: 2rem
             font-weight: 400
@@ -31,29 +31,25 @@ app-bar
             color: #ffffff
             font-weight: 700
             letter-spacing: 2px
-    .header__menu
-         transition: all .3s
-         display: block
-         opacity: 1
+    app-bar-menu
          font-size: 1rem
          box-sizing: border-box
          padding: 3px
          text-align: right
          button
-            transition: all .3s
             min-width: 50px
             min-height: 50px
             background-color: #efefef
             border-radius : 10px 0px 0px 0px
             box-sizing: border-box
             span
-                transition: all .3s
                 padding: 0.5rem 0.5rem
                 box-sizing: border-box
          @include media-in(tablet)
             display: none
          @include media-in(desktop)
-            display: none  
+            display: none
+        
 .nav
     width: 50%
     position: fixed

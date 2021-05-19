@@ -11,7 +11,7 @@ class DetailRestautantInformation extends HTMLElement {
     this.classList.add('container-detail-information');
     this.innerHTML =
       `<div class="picture__image_detail">
-        <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL}medium/${restaurantDetail.pictureId}" alt="Restoran ${restaurantDetail.name}">
+        <img src="${CONFIG.BASE_IMAGE_URL}medium/${restaurantDetail.pictureId}" alt="Restoran ${restaurantDetail.name}">
       </div>
       <div class="detail__information">
       <small class="color-primary guide">Press B To Add To Bookmark </small>
@@ -21,7 +21,7 @@ class DetailRestautantInformation extends HTMLElement {
             <p>(${restaurantDetail.rating})</p>
           </div>
           <div class="detail__location">
-          <small class="color-primary"><span class="material-icons color-primary" aria-hidden = "true" >place</span>${restaurantDetail.address} , ${restaurantDetail.city} </small>
+          <small class="color-primary"><span class="material-icons color-primary" aria-hidden = "true" >place</span>${restaurantDetail.address} </small>
           </div>
           <div class="category___detail">
             <h3 class="category_title">Kategori</h3>
@@ -30,7 +30,7 @@ class DetailRestautantInformation extends HTMLElement {
             </div>
           </div>
           <div class="description___detail">
-            <p>${restaurantDetail.description}.</p>
+            <p>${restaurantDetail.description.slice(0, 163)}.</p>
           </div>
           <button class="pure-material-button-outlined radius-material bookmark-detail" data-bookmark=${restaurantDetail.id} aria-label="Add to Borkmark ${restaurantDetail.name}">
             <i class="material-icons" aria-hidden="true" >bookmark_border</i>
@@ -58,6 +58,5 @@ class DetailRestautantInformation extends HTMLElement {
     return starsRating;
   }
 }
-
 customElements.define('detail-restaurant-information', DetailRestautantInformation);
 

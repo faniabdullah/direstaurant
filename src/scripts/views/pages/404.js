@@ -15,6 +15,9 @@ const NotFound = {
 
   },
 
+  async _errorContent(container) {
+  },
+
 };
 
 export default NotFound;

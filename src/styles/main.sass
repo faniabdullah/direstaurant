@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=swap')
+@import "https://fonts.googleapis.com/icon?family=Material+Icons"
 
 // Core
 @import core/variables
@@ -10,6 +10,7 @@
 @import components/navbar
 @import components/button
 @import components/card
+@import components/jumbotron
 @import components/restaurant
 @import components/restaurant-detail
 @import components/bookmark-page
@@ -17,13 +18,10 @@
 @import components/loading
 @import components/toast
 
-
-
+    
 .mode-theme
-    transition: all .3s
     position: relative
 .set-mode
-    transition: all .3s
     position: fixed
     border-radius: 34px 8px 34px 34px
     bottom: 6px
@@ -133,88 +131,29 @@
             @include media-in(tablet)
                 grid-column-start: 1
                 grid-column-end: 3 
-    .filtur-restaurant
-        grid-column-start: 1
-        grid-column-end: 3
-        padding-right: 20px
+    .search__content
         display: grid
-        gap : 2%
-        grid-template-columns: 100%
-        @include media-in(tablet)
-            font-size: 1rem
-            padding-right:  0px
-            grid-template-columns: 78% 20%
-        @include media-in(desktop)
-            padding-right:  0px
-            grid-template-columns: 88% 10%
-        search-element
+        grid-template-columns: 1fr
+        .search__grup
             position: relative
-        .elm-filter
-            width: 100%
-            text-align: right
-            box-sizing: border-box
-            @include media-in(desktop)
-                text-align: right
-                padding-left: 0px
-            padding-left: 10px
-            padding-top: 10px
-            button
-                font-size: 0.8rem
-                width: 40%
-                @include media-in(tablet)
-                    width: 100%
-                @include media-in(desktop)
-                    width: 100%
-                position: relative
-                background-color: var(--primary)
-                border-color: var(--primary)
-                color: white
-                border-radius: 4px
-                padding-left: 32px
-                .input-icons
-                    position: absolute
-                    left: 5px
-                    top: 8px
-        #list-filter
             display: grid
-            transition: all .3s
-            margin-top: 10px
-            grid-column-start: 1
-            grid-column-end: 2
-            padding-right: 20px
-            gap : 10px
-            grid-template-columns: repeat(2,1fr)
-            @include media-in(tablet)
-                grid-template-columns: repeat(4,1fr)
-            @include media-in(desktop)
-                grid-template-columns: repeat(6,1fr)
-            button
-                transition: all .3s
-                position: relative 
-                background-color: var(--bgInput)
-                color: var(--textColor)
-                overflow: hidden
-                font-size: 1.1rem
-                z-index: 1
-                line-height: 40px
-                box-sizing: border-box
+            grid-template-columns:  80% 20%
+            .input__search
                 width: 100%
-                &:before, &:after
-                    content: ''
-                    position: absolute
-                    bottom: 0
-                    left: 0
-                    width: 0%
-                    height: 100%
-                    background-color: var(--primary) 
-                    transition: all .3s
-                    font-weight: 700
-                    z-index: -1
+                min-height: 44px
+                font-size: 1rem
+                padding: 12px
+                border-radius: 10px 0px 0px 0px
+                box-sizing: border-box
+                background-color: #ffffff
+                color: black
+            .btn-search
+                background-color: #ffffff
+                border-radius: 0px 0px 10px 0px
+                box-sizing: border-box
+                z-index: 1
                 &:hover, &:focus
-                    color: white
-                    &:before
-                        width: 100% !important
-
+                    color: #ffffff
     .post__content_restoran
         display: grid
         gap : 25px
@@ -284,19 +223,3 @@ footer
    &:focus
        top: 0
 
-$skeleton: #cfcfcf
-
-.skeleton
-    *
-        &:focus
-            outline: 0 !important
-    p, h2, h3, a, span, small, button, footer, ul, form, img 
-        transition: 0
-        border: 0 !important
-        pointer-events: none
-        user-select: none
-        color: $skeleton !important
-        background-color: $skeleton !important
-    li
-        &::before
-            @extend p

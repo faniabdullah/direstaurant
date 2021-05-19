@@ -11,7 +11,7 @@ class RestaurantItem extends HTMLElement {
     this.innerHTML =
       `<article class="post-item__content card-1 ">
       <div class="post-item__image"> 
-          <img class="lazyload" src="./images/placeholder.webp" width="500" height="250"  data-src="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}" alt="Restoran ${restaurant.name} , ${restaurant.city}">
+          <img src="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}" alt="Restoran ${restaurant.name} , ${restaurant.city}">
       </div>
       <div class="wrapper__detail">
       <div class="post-item__detail">
@@ -53,5 +53,4 @@ class RestaurantItem extends HTMLElement {
     return starsRating;
   }
 }
-
 customElements.define('restaurant-item', RestaurantItem);

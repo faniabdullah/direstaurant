@@ -19,6 +19,7 @@ class ApiRestaurant {
       const response = await fetch(API_ENDPOINT.DETAIL(id));
       return response.json();
     } catch (err) {
+      console.log(err);
       return {};
     }
   }
@@ -33,15 +34,6 @@ class ApiRestaurant {
       body: JSON.stringify(review),
     });
     return response.json();
-  }
-
-  static async searchRestaurants(search) {
-    try {
-      const response = await fetch(API_ENDPOINT.SEARCH(search));
-      return response.json();
-    } catch (err) {
-      return {};
-    }
   }
 }
 

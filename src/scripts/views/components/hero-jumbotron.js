@@ -4,28 +4,15 @@ class HeroJumbotron extends HTMLElement {
   }
 
   _render() {
-    this.innerHTML =`
-                <div class="hero">
-                <picture>
-                      <source type="image/webp" 
-                              srcset="./images/heros/hero-small.webp"
-                              media="(max-width: 600px) ">
-                      <source type="image/webp"
-                              srcset="./images/heros/hero-large.webp"
-                              media="(min-width: 601px)">
-                      <img class="lazyload" src="./images/placeholder.jpg" width="500" height="250"  
-                          srcset="./images/heros/hero-small.jpg 480w, ./images/heros/hero-large.jpg 800w"
-                          sizes="(max-width: 600px) 480px, 800px"
-                          alt="Direstaurant Hero">
-                  </picture>
-                  <div class="overlay">
-                  <div class="content">
-                      <p class="title">direstaurant</p>
-                      <p>Explore Restaurant , Search Restaurant , Popular Restaurant & Rating Restaurant</p>
-                  </div>
-                  </div>
-                </div>
-                `;
+    this.innerHTML =
+                `<div class="hero">
+                    <div class="hero__overlay">
+                    <div class="hero__inner">
+                            <h2 class="hero__title">direstaurant</h2>
+                            <p class="hero__tagline">Expoler restaurants , search restaurant , populer restaurant & rating restaurant</p>                       
+                        </div>
+                    </div>
+                </div>`;
   }
 }
 customElements.define('hero-jumbotron', HeroJumbotron);

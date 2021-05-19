@@ -1,7 +1,7 @@
 class DetailRestautantReview extends HTMLElement {
   set detailRestaurant(detail) {
     this._detailRestaurant = detail;
-    this._restaurantReviews = this._detailRestaurant.customerReviews;
+    this._restaurantReviews = this._detailRestaurant.consumerReviews;
     this._render();
   }
 
@@ -30,30 +30,27 @@ class DetailRestautantReview extends HTMLElement {
   _render() {
     const reviewsList = this._restaurantReviews;
     this.innerHTML =
-    `<div class="collapsible-review card-1">
+      `<div class="collapsible-review card-1">
       <button id="collapsibleButton" aria-label = "Buka Review Pengunjung" class="collapsible-btn card-1">Review Pengunjung</button>
       <div class="content-collapsible mt1" id="content-collapsible">
         <div class="list-review">
-          <div class="review-costumer">
-              ${this._getListReviews(reviewsList)}
+            ${this._getListReviews(reviewsList)}
+        </div>
+        <div class="send__review-restaurant">
+        <form id="addReview" name="review" tabindex="0" role="form" class="form-review">
+          <div class="input-group">
+            <i class="material-icons input-icons" aria-hidden="true" >person_outline</i>
+            <input type="text" class="input-area" required id="inputName"/>
+            <label for="inputName" class="label">Nama Lengkap</label>
           </div>
-        </div
-        <div class="send_review-restaurant">
-          <form id="addReview" name="review" tabindex="0" role="form" class="form-review mt2">
-              <div class="input-group">
-                <i class="material-icons input-icons" aria-hidden="true" >person_outline</i>
-                <input type="text" class="input-area" required id="inputName"/>
-                <label for="inputName" class="label">Nama Lengkap</label>
-              </div>
-              <div class="input-group">
-                <i class="material-icons input-icons" aria-hidden="true" >comment</i>
-                <textarea id="inputReview" class="input-area" rows="1" required></textarea>
-                <label for="inputReview" class="label">Tanggapan Anda</label>
-              </div>
-              <button id="elmBtnsendReview" aria-label = "Kirim Tanggapan Anda" class="pure-material-button-outlined radius-material">Submit
-              <i class="material-icons input-icons" aria-hidden="true" >send</i>
-              </button>
-            </form>
+          <div class="input-group">
+            <i class="material-icons input-icons" aria-hidden="true" >comment</i>
+            <textarea id="inputReview" class="input-area" rows="1" required></textarea>
+            <label for="inputReview" class="label"> Tanggapan Anda</label>
+          </div>
+          <button id="elmBtnsendReview" aria-label = "Kirim Tanggapan Anda" class="pure-material-button-outlined radius-material">Submit
+          <i class="material-icons input-icons" aria-hidden="true" >send</i>
+          </button>
         </div>
       </div>
   </div>`;
@@ -85,5 +82,5 @@ class DetailRestautantReview extends HTMLElement {
     return starsRating;
   }
 }
-
 customElements.define('detail-restaurant-review', DetailRestautantReview);
+

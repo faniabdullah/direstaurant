@@ -9,5 +9,4 @@ const swRegister = async () => {
   console.log('Service worker not supported in this browser');
 };
 
-
 export default swRegister;

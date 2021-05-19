@@ -1,7 +1,7 @@
 
 .container__detail-restaurant
     z-index: 10004
-    display: block
+    display: grid
     box-sizing: border-box
     -moz-column-gap: 15px
     margin-left: 20px
@@ -16,7 +16,7 @@
         display: grid
         grid-template-columns: 1fr
         @include media-in(tablet)
-            grid-template-columns: 1fr 
+            grid-template-columns: 1fr 1fr
         @include media-in(desktop)
             grid-template-columns: 1fr 1fr
     .picture__image_detail
@@ -85,7 +85,9 @@
         padding-bottom: 8px
         padding-left: 8px
         padding-right: 8px
-        margin-top: 20px
+        display: grid
+        grid-template-columns: 1fr
+        gap : 15px
         .collapsible-review
             height: auto
             transition: all .3s
@@ -120,61 +122,63 @@
                 &::after
                     content: "\2212"   
             .content-collapsible
+                display: grid
                 padding: 8px
-                display: block
+                grid-template-columns: 1fr
                 &:focus-within
                     max-height: none
+                gap : 8px
                 max-height: 0px
                 overflow: hidden
-                transition: max-height 0.2s ease-out
-                width: 100%
                 position: relative
+                transition: max-height 0.2s ease-out
+                .title-guide-review
+                    padding-top: 8px
+                    padding-left : 8px
+                    line-height: 16px
                 .list-review
                     &::focus + .content-collapsible
                         max-height: none
-                    .review-costumer
-                        display: grid
-                        gap:8px
-                        grid-template-columns: 100%
-                        @include media-in(desktop)
-                            grid-template-columns: 49% 49%
+                    display: grid
+                    gap : 8px
+                    grid-template-columns: 1fr
+                    @include media-in(tablet)
+                        grid-template-columns: 1fr 
+                    @include media-in(desktop)
+                        grid-template-columns: 1fr 1fr
                     .review-item
-                        overflow: auto
                         padding: 8px
-                        letter-spacing: 1px
                         background-color: var(--bgColor)
+                        display: grid
+                        grid-template-columns: 1fr
+                        gap : 6px
                         h3
                             font-size: 0.9rem
-                            padding: 2px
-                            box-sizing: border-box
                         p
                             font-size: 0.8rem
-                            padding: 2px
-                            box-sizing: border-box
                         small
                             font-size: 0.7rem
                             span
                                 font-size: 0.8rem
+            .send__review-restaurant
+                display: grid
+                padding: 8px
                 .form-review
-                    margin-top: 20px
                     display: grid
                     grid-template-columns: 1fr 
                     gap : 8px 16px
-                    box-sizing: border-box
                     @include media-in(tablet)
                         grid-template-columns: 1fr
                     @include media-in(desktop)
-                        grid-template-columns: 28% 50% 18%
+                        grid-template-columns: 1.5fr 3fr 1fr
                     button
                         margin-top: 8px
         .menu__restaurant-filtur
             display: grid
-            margin-top: 20px
             grid-template-columns: 1fr
         
 
 .explore__menu_restaurant
-    margin-top: 20px
     display: grid
     grid-template-columns: 1fr 1fr 
     @include media-in(tablet)

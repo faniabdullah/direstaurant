@@ -3,20 +3,6 @@ import ModeInitiator from '../utils/view-mode-initiator';
 import FooterInitiator from '../utils/footer-initiator';
 import routes from '../routes/routes';
 import UrlParser from '../routes/url-parser';
-
-// Components
-import '@/views/components/hero-jumbotron';
-import '@/views/components/toast-element';
-import '@/views/components/restaurant-item';
-import '@/views/components/pre-loader';
-import '@/views/components/search-element';
-import '@/views/components/filter-element';
-import '@/views/components/search-bookmarked';
-import '@/views/components/detail-restaurant-menu-item';
-import '@/views/components/detail-restaurant-information';
-import '@/views/components/detail-restaurant-review';
-import '@/views/components/detail-restaurant-search';
-
 class App {
   constructor({button, drawer, content}) {
     this._button = button;
@@ -33,6 +19,7 @@ class App {
       content: this._content,
     });
     ModeInitiator.init(document.querySelector('set-mode'));
+
     FooterInitiator.init(document.querySelector('footer-element'));
   }
 
@@ -45,11 +32,12 @@ class App {
     const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
-    this._deleteSceleton();
   }
 
-  _deleteSceleton() {
-    document.querySelector('main').classList.remove('skeleton');
+  static async refreshPage() {
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    const page = routes[url];
+    await page.afterRender();
   }
 }
 

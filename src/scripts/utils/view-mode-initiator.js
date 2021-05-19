@@ -2,19 +2,19 @@ const ModeInitiator = {
   init(element) {
     this._html = document.documentElement;
     this._elementSetMode = element;
-    this._giveEventClick();
     this._mode();
+    this._giveEventClick();
   },
 
-  _mode() {
+  async _mode() {
     if (localStorage.getItem('preferredTheme') === 'dark') {
-      this._setEvent(true);
+      await this._setEvent(true);
     } else {
-      this._setEvent(false);
+      await this._setEvent(false);
     }
   },
 
-  _setEvent(isDark) {
+  async _setEvent(isDark) {
     if (isDark) {
       this._setDark();
     } else {
@@ -22,7 +22,7 @@ const ModeInitiator = {
     }
   },
 
-  _giveEventClick() {
+  async _giveEventClick() {
     const eventBtnDark = () => {
       this._setEvent(true);
       this._setHideButton();
@@ -35,7 +35,6 @@ const ModeInitiator = {
     this._elementSetMode.eventSetDark = eventBtnDark;
     this._elementSetMode.eventSetLight = eventBtnLight;
   },
-
   _setHideButton() {
     if (localStorage.getItem('preferredTheme') === 'dark') {
       document.querySelector('#setDark').classList.add('hide');
@@ -59,7 +58,11 @@ const ModeInitiator = {
   },
 
   _transition() {
-    this._setHideButton();
+    document.documentElement.classList.add('transition');
+    window.setTimeout(() => {
+      this._setHideButton();
+      document.documentElement.classList.remove('transition');
+    }, 1000);
   },
 
 };

@@ -1,23 +1,36 @@
-import RestaurantBookmarkIdb from '@/data/restaurant-bookmark-idb';
-import RestaurantBookmarkView from './bookmarked/bookmarked-view';
-import RestaurantBookmarkShowPresenter from './bookmarked/bookmarked-show-presenter';
-import RestaurantBookmarkSearchPresenter from './bookmarked/bookmarked-search-presenter';
-import BookmarkPresenter from '@/utils/bookmark-presenter';
-import ToastInitiator from '@/utils/toast-initiator';
-import ApiRestaurant from '@/data/api-restaurant';
-
-
-const view = new RestaurantBookmarkView({apiRestaurant: ApiRestaurant, restaurantBookmark: RestaurantBookmarkIdb, bookmarkPresenter: BookmarkPresenter, toastInitialize: ToastInitiator});
-
-const BookMark = {
+import RestaurantBookmarkIdb from '@/data/database';
+import RestaurantBookmarkInitiator from '@/utils/restaurant-bookmark-initiator';
+import '@/views/components/pre-loader';
+const BoorkMark = {
   async render() {
-    return view.getTemplate();
+    return `
+    <div id="restaurantBookmark" class='container__secondary card-1 mt8'>
+        <h2 class="mt1 center">Bookmark Anda</h2>
+        <pre-loader></pre-loader>
+         <section id="restaurant-bookmark">
+         </section>
+    </div>
+      `;
   },
 
   async afterRender() {
-    new RestaurantBookmarkShowPresenter({view, restaurantBookmark: RestaurantBookmarkIdb});
-    new RestaurantBookmarkSearchPresenter({view, restaurantBookmark: RestaurantBookmarkIdb});
+    try {
+      this._restaurantBookmark = document.getElementById('restaurantBookmark');
+      this._dataRestaurant = await RestaurantBookmarkIdb.getAllRestaurant();
+      this._initialContentBookmarkPage(this._dataRestaurant, this._restaurantBookmark);
+    } catch (error) {
+      console.log(error);
+      this._errorContent(restaurantContent);
+      this._errorContent(restaurantPopularContent);
+    }
+  },
+
+  async _initialContentBookmarkPage(dataRestaurant, bookmarkContent) {
+    RestaurantBookmarkInitiator.init({
+      data: dataRestaurant,
+      content: bookmarkContent,
+    });
   },
 };
 
-export default BookMark;
+export default BoorkMark;

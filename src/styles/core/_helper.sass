@@ -3,9 +3,6 @@
   padding: 0
   border: 0
   box-sizing: border-box
-
-main
-  min-height: 95vh
   
 html, body
   font-family: $noto-sans
@@ -28,33 +25,7 @@ html[data-theme='dark']
   --bgInput : #232323 
 
 
-.hero
-    @include full-size
-    position: relative
-    height: 480px
 
-    img
-        perspective: 4px
-
-    .overlay
-        padding: 0 2rem
-        width: 100%
-        height: 100%
-        top: 0
-        color: white
-        position: absolute
-        @include flex
-        background-color: rgba(0,0,0,0.6)
-
-        .content
-            font-size: 1.25rem
-            text-align: center
-            margin: auto
-            .title
-                font-size: 2rem
-    img
-        @extend .hero
-        object-fit: cover
 
   
 html.transition,
@@ -66,7 +37,6 @@ html.transition *:after
 
 body
   min-height: 100vh
-  width: 100%
  
 h2
   font-size: 1.5rem
@@ -103,6 +73,26 @@ button
 
 .center
   text-align: center
+
+.darkModePrimary
+  color: #ffffff
+  background-color: rgb(33, 33, 33)
+
+.navbar-dark-mode
+  background-color: rgb(225, 255, 255,0.12)
+  a
+    color: #ffffff
+
+.card-dark-mode
+   background-color:  rgb(225, 255, 255,0.12)
+   color: #ffffff
+   z-index: 500
+   
+.nav-dark-mode
+  background-color:  rgb(225, 255, 255,0.12)
+  color: #ffffff
+  a
+    color: #ffffff
 
 .msg-failed
   text-align: center

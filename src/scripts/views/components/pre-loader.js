@@ -8,5 +8,4 @@ class PreLoader extends HTMLElement {
                   `<div class="preloader-blue"></div>`;
   }
 }
-
 customElements.define('pre-loader', PreLoader);

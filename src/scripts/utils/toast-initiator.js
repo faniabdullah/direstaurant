@@ -1,3 +1,4 @@
+import '@/views/components/toast-element';
 
 const Toast = {
   async show({message = 'hello Iam Toast', type = 'default'}) {
@@ -14,15 +15,14 @@ const Toast = {
     }
     await this._container.appendChild(ToastElement);
     this._toast = document.getElementById(this._TOAST_ID);
-    if (this._toast) {
-      this._closeBtn = this._toast.querySelector('.close-toast');
+    this._closeBtn = this._toast.querySelector('.close-toast');
 
-      setTimeout(() => {
-        this._toast.classList.add('show-toast');
-      }, 400);
+    setTimeout(() => {
+      this._toast.classList.add('show-toast');
+    }, 400);
 
-      await this._createEvent(this._toast);
-    }
+
+    await this._createEvent(this._toast);
   },
 
   async _isToastExist(container) {
