@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=swap')
+@import "https://fonts.googleapis.com/icon?family=Material+Icons"
 
 // Core
 @import core/variables
@@ -10,20 +10,12 @@
 @import components/navbar
 @import components/button
 @import components/card
+@import components/jumbotron
 @import components/restaurant
-@import components/restaurant-detail
-@import components/bookmark-page
-@import components/input-group
-@import components/loading
-@import components/toast
-
-
 
 .mode-theme
-    transition: all .3s
     position: relative
 .set-mode
-    transition: all .3s
     position: fixed
     border-radius: 34px 8px 34px 34px
     bottom: 6px
@@ -74,15 +66,13 @@
     margin-top: 20px
     display: grid
     grid-template-columns: 1fr
-    error-content
-        margin: 40px
     .content__label
         padding-left: 20px
     .post-content__populer
         display: grid
         gap : 16px
         overflow : auto
-        padding: 20px
+        padding: 10px
         grid-template-columns: 80%
         -moz-column-gap: 5px
         grid-auto-columns: 80%
@@ -97,137 +87,56 @@
 .content__explore-restaurant
     display: grid
     padding-left: 20px
-    padding-right: 20px
     grid-template-columns: 1fr
-    transition: opacity .5s ease
     gap : 20px
-    @include media-in(desktop)
-        grid-template-columns: 1fr  1fr
-    @include media-in(tablet)
-        grid-template-columns: 1fr  1fr
-    error-content
-        margin: 40px
-        .msg-failed
-            a
-                background-color: map-get($colors,'primary' )
-                color: white
-        @include media-in(desktop)
-            grid-column-start: 1
-            grid-column-end: 3 
-        @include media-in(tablet)
-            grid-column-start: 1
-            grid-column-end: 3 
-    pre-loader
-        @include media-in(desktop)
-            grid-column-start: 1
-            grid-column-end: 3 
-        @include media-in(tablet)
-            grid-column-start: 1
-            grid-column-end: 3 
-    .content__label
-            text-align: center
-            font-size: 2rem
-            @include media-in(desktop)
-                grid-column-start: 1
-                grid-column-end: 3 
-            @include media-in(tablet)
-                grid-column-start: 1
-                grid-column-end: 3 
-    .filtur-restaurant
+    .search__content
         grid-column-start: 1
         grid-column-end: 3
-        padding-right: 20px
         display: grid
-        gap : 2%
-        grid-template-columns: 100%
-        @include media-in(tablet)
-            font-size: 1rem
-            padding-right:  0px
-            grid-template-columns: 78% 20%
-        @include media-in(desktop)
-            padding-right:  0px
-            grid-template-columns: 88% 10%
-        search-element
+        grid-template-columns: 1fr
+        gap : 20px
+        .search_label
+            text-align: center
+            font-size: 2rem
+        .search__grup
             position: relative
-        .elm-filter
-            width: 100%
-            text-align: right
-            box-sizing: border-box
-            @include media-in(desktop)
-                text-align: right
-                padding-left: 0px
-            padding-left: 10px
-            padding-top: 10px
-            button
-                font-size: 0.8rem
-                width: 40%
-                @include media-in(tablet)
-                    width: 100%
-                @include media-in(desktop)
-                    width: 100%
-                position: relative
-                background-color: var(--primary)
-                border-color: var(--primary)
-                color: white
-                border-radius: 4px
-                padding-left: 32px
-                .input-icons
-                    position: absolute
-                    left: 5px
-                    top: 8px
-        #list-filter
             display: grid
-            transition: all .3s
-            margin-top: 10px
-            grid-column-start: 1
-            grid-column-end: 2
+            grid-template-columns:  80% 20%
+            width: 100%
             padding-right: 20px
-            gap : 10px
-            grid-template-columns: repeat(2,1fr)
             @include media-in(tablet)
-                grid-template-columns: repeat(4,1fr)
-            @include media-in(desktop)
-                grid-template-columns: repeat(6,1fr)
-            button
-                transition: all .3s
-                position: relative 
-                background-color: var(--bgInput)
-                color: var(--textColor)
-                overflow: hidden
-                font-size: 1.1rem
-                z-index: 1
-                line-height: 40px
-                box-sizing: border-box
+                grid-template-columns: 20% 50% 10% 20%
+            @include media-in(tablet)
+                grid-template-columns: 20% 50% 10% 20%
+            .input__search
                 width: 100%
-                &:before, &:after
-                    content: ''
-                    position: absolute
-                    bottom: 0
-                    left: 0
-                    width: 0%
-                    height: 100%
-                    background-color: var(--primary) 
-                    transition: all .3s
-                    font-weight: 700
-                    z-index: -1
+                min-height: 44px
+                font-size: 1rem
+                padding: 16px
+                border-radius: 10px 0px 0px 0px
+                box-sizing: border-box
+                background-color: #ffffff
+                color: black
+                @include media-in(tablet)
+                    grid-column-start: 2
+            .btn-search
+                background-color: #ffffff
+                border-radius: 0px 0px 10px 0px
+                box-sizing: border-box
+                z-index: 1
                 &:hover, &:focus
-                    color: white
-                    &:before
-                        width: 100% !important
-
+                    color: #ffffff
+                @include media-in(tablet)
+                    grid-column-start: 3
     .post__content_restoran
         display: grid
         gap : 25px
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr 
         @include media-in(tablet)
             grid-template-columns: 1fr 1fr
-            grid-column-start: 1
-            grid-column-end: 3 
         @include media-in(desktop)
             grid-template-columns: 1fr 1fr
-            grid-column-start: 1
-            grid-column-end: 3 
-        .msg-failed
+        .nothing-restaurant
             @include media-in(tablet)
                grid-column-start: 1
                grid-column-end: 3 
@@ -239,64 +148,40 @@
 
 footer
     display: grid
-    box-sizing: border-box
-    grid-template-columns: 1fr   
-    transition: all .1s
+    grid-template-columns: 1fr    
 .footer_app
+    overflow: hidden
     min-height: 80px
-    padding-bottom: 8px
-    display: inline-grid
-    justify-items: center
-    grid-template-columns : 1fr
     box-sizing: border-box
     .footer__label
+        padding: 10px
         font-weight: 300
         font-size: 1.2rem
         .logo-background
             font-weight: 700
-            background-color: var(--primary)
             color: #ffffff
 
+.forward
+    background-color: map-get($colors, "primary")
+
 .back-to-top
-        color: map-get($colors,'primary' )
-        background-color: #efefef
-        min-height: 45px
-        border: 0px
-        border-radius: 8px
+        border-radius: 10px
+        padding: 2px 0px 0px 0px
         box-sizing: border-box
-        &:focus
-            border: 2px solid var(--primary)
-        .icon-top
-            font-size: 35px
-            font-weight: bold
-            line-height: 0px
+        display: inline-block
+        color: #ffffff
+        line-height: 10px
+        span
+            font-size: 40px
 .skip-link 
    position: absolute
    top: -100px
    left: 0
    padding: 8px
    transition: all .3s
-   background-color: var(--primary)
    color: #ffffff
    display: inline-block
    z-index: 1003
    border-radius: 10px
    &:focus
        top: 0
-
-$skeleton: #cfcfcf
-
-.skeleton
-    *
-        &:focus
-            outline: 0 !important
-    p, h2, h3, a, span, small, button, footer, ul, form, img 
-        transition: 0
-        border: 0 !important
-        pointer-events: none
-        user-select: none
-        color: $skeleton !important
-        background-color: $skeleton !important
-    li
-        &::before
-            @extend p

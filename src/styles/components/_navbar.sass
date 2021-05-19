@@ -7,12 +7,10 @@ header
     z-index: 1001
     background-color: #ffffff
 
-app-bar
-    transition: all .3s
+.container__header
     grid-template-columns: 1fr 1fr
     display: grid
     position: sticky
-    background-color: var(--bgInput)
     top : 0
     align-content: right
     @include media-in(tablet)
@@ -23,37 +21,34 @@ app-bar
         display: grid
     .title
         padding : 3px
+        font-family: $quick-sans
         .text-logo
             font-size: 2rem
             font-weight: 400
         .logo-background
-            background-color: var(--primary)
+            background-color: map-get($colors, "primary")
             color: #ffffff
             font-weight: 700
             letter-spacing: 2px
     .header__menu
-         transition: all .3s
-         display: block
-         opacity: 1
          font-size: 1rem
          box-sizing: border-box
          padding: 3px
          text-align: right
          button
-            transition: all .3s
             min-width: 50px
             min-height: 50px
-            background-color: #efefef
+            background-color: map-get($colors, "light")
             border-radius : 10px 0px 0px 0px
             box-sizing: border-box
             span
-                transition: all .3s
                 padding: 0.5rem 0.5rem
                 box-sizing: border-box
          @include media-in(tablet)
             display: none
          @include media-in(desktop)
-            display: none  
+            display: none
+        
 .nav
     width: 50%
     position: fixed
@@ -61,7 +56,7 @@ app-bar
     z-index: 100
     top : 55px
     right: 0
-    background-color: var(--bgInput)
+    background-color: #ffffff
     -webkit-transform: translate(350px, 0)
     transform: translate(350px, 0)
     transition: transform 0.3s ease
@@ -70,7 +65,6 @@ app-bar
         display: inline-block
         transition: all .3s
         box-sizing: border-box
-        color: var(--textColor)
         padding: 12px
         min-height: 50px
         @include media-in(tablet)

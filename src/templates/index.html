@@ -5,43 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" content=" direstaurant Cari, Explore dan simpan Restoran pilihan favoritmu">
     <link rel="icon" type="image/png" href="./images/icon.png" alt="icon">
-    <link rel="apple-touch-icon" href="./images/icon.png" alt="icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="preconnect" href="https://restaurant-api.dicoding.dev/">
-    <link rel="dns-prefetch" href="https://restaurant-api.dicoding.dev/">
-    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
     <title>direstaurant</title>
 </head>
 <body>
-    <a href="#restaurantContent" id="skip-content" class="forward skip-link card-1 "> Menuju ke konten  <i class="material-icons" aria-hidden="true">skip_next</i></a>
+    <a href="#maincontent" id="skip-content" class="forward skip-link card-1 "> Menuju ke konten  <i class="material-icons" aria-hidden="true">skip_next</i></a>
     <header class="header-apps">
-        <app-bar></app-bar>
-    </header>
-    
-    <main role="main" id="mainContent" class="skeleton">
-            <div class="hero">
-                <img src="./images/placeholder.jpg" alt="for skeleton">
+        <div class="container__header">
+            <div class="title">
+                <h1 class="text-logo">
+                    <span class="logo-background">di</span>restaurant
+                </h1>
             </div>
-            <show-case></show-case>
-            <section class="content-populer">
-              <h2 class="content__label"> Lagi Populer nih !!</h2>
-              <div id="restaurantPopularContent" class="content-populer">
-              </div>
-            </section>
-
-            <section id="restaurantContent" class="content__explore-restaurant mt2">
-                <h2 class="content__label"> Jelajahi Restoran </h2>
-                <div class="filtur-restaurant">
-                    <search-element></search-element>
-                    <filter-element></filter-element>
-                    <div id="list-filter"></div>
+            <div class="header__menu">
+                <button id="menu" aria-label="menu open" class="header__icon-menu">
+                   <span class="material-icons">menu</span>
+                </button>
+            </div>
+            <div id="drawer" class="nav" role="navigation">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="btn"   href="index.html"><span class="material-icons" aria-hidden="true">home</span> Home</a></li>
+                    <li class="nav__item"><a class="btn"   href="#"><span class="material-icons" aria-hidden="true">book</span> Bookmark</a></li>
+                    <li class="nav__item"><a class="btn"   href="https://www.linkedin.com/in/fani-abdullah/" target="_blank"><span class="material-icons" aria-hidden="true">person</span> About Us</a></li>
+                </ul>
+            </div>
+           
+        </div>
+    </header>
+    <div class="hero">
+        
+        <div class="hero__overlay">
+        <div class="hero__inner">
+                <h2 class="hero__title">direstaurant</h2>
+                <p class="hero__tagline">Expoler restaurants , search restaurant , populer restaurant & rating restaurant</p>                       
+            </div>
+        </div>
+    </div>
+    <main role="main">
+        <section class="why-me">
+            <h2 class="__label"> Mengapa harus kami ?</h2>
+            <div class="content">
+                <div>
+                    <span aria-label="bookmark" class="material-icons icons-why-me color-primary">bookmark</span>
+                    <p>Simpan restaurant Favoritmu dan Anda bisa melihat kapan saja</p>
                 </div>
-                <div id="explore-restaurant"></div>
-            </section>
+                <div >
+                    <span aria-label="rekomendasi restaurant" class="material-icons icons-why-me color-primary">star</span>
+                    <p> dapatkan rekomendasi restaurant populer yang diambil dari rating</p>
+                </div>
+                <div >
+                    <span aria-label="cari restoran" class="material-icons icons-why-me color-primary">search</span>
+                    <p>Cari restaurant dan temukan Restoran mu </p>
+                </div>
+                <div >
+                    <span aria-label="menu restoran" class="material-icons icons-why-me color-primary">restaurant_menu</span>
+                    <p> explore restoran dan pilih restoran dengan selera menu mu </p>
+                </div>
+            </div>
+        </section>
+       
+        <section class="content-populer">
+            <h2 class="content__label"> Lagi Populer nih !!</h2>
+            <div class="post-content__populer" id="post-content-restoran-populer" role="Restaurant Populer Saat ini">
+            </div>
+        </section>
+
+        <section id="maincontent" class="content__explore-restaurant mt2">
+            <div class="search__content">
+                <h2 class="search_label">Cari Restoran</h2>
+                <div class="search__grup center">
+                    <input type="text" onkeyup = "searchRestaurant()" id="search-restaurant" class="card-1 input__search" placeholder="Cari Restoran Berdasarkan Nama ">
+                    
+                    <button class="btn btn-search card-1" aria-label="klik untuk cari Restoran" onclick="searchRestaurant()">
+                        <span class="material-icons">search</span>
+                    </button>
+             </div>
+            </div>
+            <div class="post__content_restoran" id="post-content-restoran">
+            </div>
+        </section>
+        
     </main>
-    
-    <set-mode></set-mode>
-    <footer-element></footer-element>
-    <div id="toast-notification"></div>
+
+    <div role="switch mode pop-up" class="set-mode">
+            <button  id="setDark" class="set-mode" onclick="setDarkMode(true)"  aria-label="Rubah mode menjadi gelap"> <span class="material-icons" aria-hidden="true">brightness_3</span></button>          
+            <button  id="setLight" class="set-mode hide" onclick="setDarkMode(false)"  aria-label="Rubah Mode menjadi Terang"> <span class="material-icons" aria-hidden="true">brightness_5</span></button>
+    </div>
+
+    <footer>    
+        <div class="card-1 mt4  center footer_app">
+            <a href="#skip-content" class="forward back-to-top mt1 " aria-label="Kembali ke Atas"><span class="material-icons icons-top">keyboard_arrow_up</span></a>
+            <p class="footer__label mt1">Copyright © 2020 - <span class="logo-background">di</span>restaurant</p></footer>
+        </div>
+    </footer>
 </body>
 </html>

@@ -4,14 +4,14 @@
       @media (min-width: $size)
         @content
 
+$path--rel : "./images/heros"
+@mixin background-image($img) 
+    background-image: url('#{$path--rel}/#{$img}')
+
 @mixin full-size
   height: 100%
   width: 100%
 
-@mixin flex($dir: auto)
-  display: flex
-  flex-direction: $dir
-    
 $max: 8
 $setoff: 0.5
 @mixin list-loop($class, $style) 

@@ -13,85 +13,12 @@
     left: 0
     width: 0%
     height: 100%
-    background-color: var(--primary)
+    background-color: map-get($colors, "primary")
     transition: all .3s
     z-index: -1
   &:hover, &:focus
     color: #ffffff
     &:before
       width: 100% !important
-
-.radius-material
-  border-radius: 4px
-
-.pure-material-button-outlined
-  position: relative
-  display: inline-block
-  box-sizing: border-box
-  border: solid 1px var(--textColor)
-  color: var(--textColor)
-  padding: 0 16px
-  min-width: 64px
-  height: 44px
-  vertical-align: middle
-  text-align: center
-  text-overflow: ellipsis
-  text-transform: uppercase
-  background-color: transparent
-  font-size: 14px
-  font-weight: 500
-  line-height: 34px
-  overflow: hidden
-  outline: none
-  cursor: pointer
-
-  &::-moz-focus-inner
-    border: none
-
-  &::before
-    content: ""
-    position: absolute
-    left: 0
-    right: 0
-    top: 0
-    bottom: 0
-    background-color: currentColor
-    opacity: 0
-    transition: opacity 0.2s
-
-  &::after
-    content: ""
-    position: absolute
-    left: 50%
-    top: 50%
-    border-radius: 50%
-    padding: 50%
-    width: 32px
-    height: 32px
-    background-color: currentColor
-    opacity: 0
-    transform: translate(-50%, -50%) scale(1)
-    transition: opacity 1s, transform 0.5s
-
-  &:hover::before
-    opacity: 0.04
-
-  &:focus::before
-    opacity: 0.12
-
-  &:hover:focus::before
-    opacity: 0.16
-
-  &:active::after
-    opacity: 0.16
-    transform: translate(-50%, -50%) scale(0)
-    transition: transform 0s
-
-  &:disabled
-    background-color: transparent
-    cursor: initial
-
-    &::before, &::after
-      opacity: 0
-
+  
     

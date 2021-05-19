@@ -15,13 +15,9 @@
     img
         border-radius: 10px 0px 10px 0px
         width: 100%
-        height: 300px
-        object-fit: cover
-        @include media-in(tablet)
-            height: 300px
-            object-fit: cover
+        height: auto
         @include media-in(desktop)
-            height: 224px
+            height: 208px
             position: absolute
             bottom: 0
             top: 0
@@ -44,7 +40,7 @@
             grid-column-end: 6
     .post-item__rating
         display: inline-flex
-        color: var(--primary)
+        color: #F8B704
         padding-left: 6px
         font-size: 0.8rem
         @include media-in(tablet)
@@ -72,27 +68,13 @@
             text-align: right
             .btn__borkmark
                 grid-column-start: 2
-                background-color: var(--bgColor)
-                border: 0px
                 bottom: 0px
-                height: 45px
-                &:focus
-                    border: 2px solid var(--primary)
-            .btn__detail
-                grid-column-start: 3
-                grid-column-end: 5
-                color: #ffffff
-                font-weight: 700
-                background-color:  var(--primary)
-                border-radius: 0px 0px 10px 0px
                 height: 45px
                 text-align: center
                 position: relative 
                 overflow: hidden
-                font-size: 1.1rem
                 z-index: 1
-                line-height: 40px
-                box-sizing: border-box
+                color: black
                 &:before, &:after
                     content: ''
                     position: absolute
@@ -100,12 +82,38 @@
                     left: 0
                     width: 0%
                     height: 100%
-                    background-color: var(--bgInput)
+                    background-color: map-get($colors, "dark") 
                     transition: all .3s
-                    font-weight: 700
+                    z-index: -2
+                &:hover, &:focus
+                    color: #ffffff
+                    &::before
+                        width: 100% !important
+            .btn__detail
+                grid-column-start: 3
+                grid-column-end: 5
+                color: #ffffff
+                font-weight: 700
+                background-color:  map-get($colors, "primary")
+                border-radius: 0px 0px 10px 0px
+                height: 45px
+                text-align: center
+                position: relative 
+                overflow: hidden
+                font-size: 1.2rem
+                z-index: 1
+                &:before, &:after
+                    content: ''
+                    position: absolute
+                    bottom: 0
+                    left: 0
+                    width: 0%
+                    height: 100%
+                    background-color: #ffffff
+                    transition: all .3s
                     z-index: -1
                 &:hover, &:focus
-                    color: var(--primary)
+                    color: map-get($colors, "primary")
                     &:before
                         width: 100% !important
 
